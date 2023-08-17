@@ -1,37 +1,46 @@
-<header class="bottom-bar">
-  <nav>
-    <ul class="controls">
-      <li class="list control active-btn" data-id="home">
-        <a routerLink="/" class="button-container">
-          <span class="icon"><i class="fas fa-home"></i></span>
-          <span class="text">Home</span>
-        </a>
-      </li>
-      <li class="list control" data-id="about">
-        <a routerLink="/list/all" class="button-container">
-          <span class="icon"><i class="fas fa-user"></i></span>
-          <span class="text">Movies</span>
-        </a>
-      </li>
-      <li class="list control" data-id="about">
-        <a routerLink="/search" class="button-container">
-          <span class="icon"><i class="fas fa-user"></i></span>
-          <span class="text">search</span>
-        </a>
-      </li>
-      <li class="list control" data-id="portfolio">
-        <a routerLink="/favorites" class="button-container">
-          <span class="icon"><i class="fas fa-briefcase"></i></span>
-          <span class="text">favorites</span>
-        </a>
-      </li>
-      <li class="list control" data-id="blogs">
-        <a routerLink="/contact" class="button-container">
-          <span class="icon"><i class="far fa-newspaper"></i></span>
-          <span class="text">contact</span>
-        </a>
-      </li>
-      <div class="indicator"></div>
-    </ul>
-  </nav>
+<header class="top__bar {{ navbg }}">
+  <div class="top__bar-ctn">
+    <a routerLink="/">
+      <div class="logo__ctn">
+        <p class="logo__txt top"><span class="orange">D</span>Leng</p>
+        <p class="logo__txt bottom"><span class="pink">D</span>Leng</p>
+      </div>
+    </a>
+    <div class="nav__ctn">
+      <div class="nav__search">
+        <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
+          <input
+            type="text"
+            placeholder="search..."
+            formControlName="searchName"
+          />
+          <button class="search__btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+      <ul class="nav__list">
+        <li class="nav__list-btn">
+          <a routerLink="/list/all" class="nav__link">
+            <span class="text">Movies</span>
+          </a>
+        </li>
+        <li class="nav__list-btn">
+          <a routerLink="/favorites" class="nav__link">
+            <span class="text">Favorites</span>
+          </a>
+        </li>
+        <li class="nav__list-btn">
+          <a routerLink="/contact" class="nav__link">
+            <i class="fa-regular fa-circle-question" title="Help Center"></i>
+          </a>
+        </li>
+        <li class="nav__list-btn">
+          <a routerLink="/search" class="nav__link">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </header>

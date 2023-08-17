@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
-import { map } from 'rxjs/operators';
-import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-detail',

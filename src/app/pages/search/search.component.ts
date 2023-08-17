@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
 
@@ -9,7 +9,6 @@ import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service'
 })
 export class SearchComponent {
   constructor(private service: TmdbApiServiceService) {}
-  ngOnInit(): void {}
 
   searchResult: any;
 

@@ -17,6 +17,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ErrorComponent } from './pages/error/error.component';
     MovieCardComponent,
     ContactComponent,
     ErrorComponent,
+    MenuBarComponent,
   ],
   imports: [
     BrowserModule,
