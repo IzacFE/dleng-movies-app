@@ -1,0 +1,25 @@
+<div>
+  <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
+    <label for="search">Search</label>
+    <input type="text" placeholder="search..." formControlName="searchName" />
+    <button>search</button>
+  </form>
+
+  <ul class="results" *ngIf="searchResult">
+    <li *ngFor="let movie of searchResult">
+      <a
+        routerLink="/detail/{{
+          movie.media_type ? movie.media_type : 'other'
+        }}/{{ movie.id }}"
+      >
+        <img
+          src="https://image.tmdb.org/t/p/original{{ movie.backdrop_path }}"
+          alt=""
+          width="250px"
+        />
+        <h2>{{ movie.original_title }}</h2>
+        <p>{{ movie.overview }}</p></a
+      >
+    </li>
+  </ul>
+</div>

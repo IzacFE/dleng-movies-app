@@ -1,0 +1,16 @@
+<div>
+  <form [formGroup]="googleSheetForm" (ngSubmit)="onSubmit()">
+    <label for="name">name</label>
+    <input type="text" id="name" formControlName="name" />
+
+    <label for="email">email</label>
+    <input type="email" id="email" formControlName="email" />
+
+    <label for="phone">phone</label>
+    <input type="text" id="phone" formControlName="phone" />
+
+    <label for="message">message</label>
+    <input type="text" id="message" formControlName="message" />
+    <button>Submit</button>
+  </form>
+</div>

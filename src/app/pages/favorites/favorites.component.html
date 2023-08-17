@@ -1,0 +1,9 @@
+<div>
+  <div class="container" style="display: flex; flex-wrap: wrap">
+    <ng-container *ngIf="!loading">
+      <div *ngFor="let item of favorites; let index">
+        <app-movie-card [data]="item"></app-movie-card>
+      </div>
+    </ng-container>
+  </div>
+</div>
