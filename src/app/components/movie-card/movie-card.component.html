@@ -1,10 +1,22 @@
-<div style="border: 2px solid black; width: 250px">
+<div class="movie__card">
   <a routerLink="/detail/{{ data.id }}">
     <img
-      src="https://image.tmdb.org/t/p/original{{ data.backdrop_path }}"
-      alt=""
-      width="250px"
+      src="https://image.tmdb.org/t/p/original{{ data.poster_path }}"
+      alt="{{ data.original_title }}"
+      class="movie__card-img"
+      loading="lazy"
     />
-    <h2>{{ data.original_title }}</h2> </a
-  ><i class="fa-solid fa-heart fav__icon" (click)="onFavClick(data)"></i>
+  </a>
+  <div class="movie__desc">
+    <div class="rating__ctn">
+      <div class="rating__star">
+        <div
+          class="overlay"
+          [style]="'height: ' + data.vote_average * 10 + '%'"
+        ></div>
+      </div>
+      <p class="rating__num">{{ data.vote_average }}</p>
+    </div>
+    <i class="fa-solid fa-heart fav__icon" (click)="onFavClick(data)"></i>
+  </div>
 </div>

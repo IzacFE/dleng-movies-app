@@ -1,4 +1,4 @@
-<div>
+<main class="search__page">
   <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
     <label for="search">Search</label>
     <input type="text" placeholder="search..." formControlName="searchName" />
@@ -22,5 +22,5 @@
       >
     </li>
   </ul>
-</div>
+</main>
 <app-menu-bar></app-menu-bar>
