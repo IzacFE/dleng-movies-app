@@ -1,22 +1,32 @@
-<div class="movie__card">
-  <a routerLink="/detail/{{ data.id }}">
+<div class="search__card">
+  <a class="search__card-link" routerLink="/detail/{{ data.id }}">
     <img
       src="https://image.tmdb.org/t/p/original{{ data.poster_path }}"
       alt="{{ data.original_title }}"
-      class="movie__card-img"
+      class="search__card-img"
       loading="lazy"
     />
   </a>
-  <div class="movie__desc">
-    <div class="rating__ctn">
-      <div class="rating__star">
-        <div
-          class="overlay"
-          [style]="'height: ' + data.vote_average * 10 + '%'"
-        ></div>
-      </div>
-      <p class="rating__num">{{ data.vote_average }}</p>
+  <div class="search__desc">
+    <div class="first__row">
+      <h2 class="movie__title">{{ data.title }}</h2>
     </div>
-    <app-favorite-button [data]="data"></app-favorite-button>
+    <div class="second__row">
+      <div class="rating__ctn">
+        <div class="rating__star">
+          <div
+            class="overlay"
+            [style]="'height: ' + data.vote_average * 10 + '%'"
+          ></div>
+        </div>
+        <p class="rating__num">{{ data.vote_average }}</p>
+        <p class="rating__vote">( {{ data.vote_count }} )</p>
+      </div>
+
+      <app-favorite-button [data]="data"></app-favorite-button>
+    </div>
+    <div class="third__row">
+      <p class="overview">{{ data.overview }}</p>
+    </div>
   </div>
 </div>
