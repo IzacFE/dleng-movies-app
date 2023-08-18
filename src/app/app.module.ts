@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/search/search.component';
 import { DetailComponent } from './pages/detail/detail.component';
-import { ListComponent } from './pages/list/list.component';
+import { MoviesComponent } from './pages/movies/movies.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TmdbApiServiceService } from './service/tmdb-api-service.service';
@@ -25,7 +25,7 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
     HomeComponent,
     SearchComponent,
     DetailComponent,
-    ListComponent,
+    MoviesComponent,
     FavoritesComponent,
     NavbarComponent,
     ButtonComponent,

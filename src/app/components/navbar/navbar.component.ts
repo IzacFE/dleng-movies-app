@@ -9,7 +9,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class NavbarComponent {
   constructor() {}
 
-  params$: any;
   navbg: string = '';
 
   searchForm = new FormGroup({

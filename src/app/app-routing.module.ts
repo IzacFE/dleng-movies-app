@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/search/search.component';
 import { DetailComponent } from './pages/detail/detail.component';
-import { ListComponent } from './pages/list/list.component';
+import { MoviesComponent } from './pages/movies/movies.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ErrorComponent } from './pages/error/error.component';
@@ -11,7 +11,7 @@ import { ErrorComponent } from './pages/error/error.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'list/:type', component: ListComponent },
+  { path: 'movies', component: MoviesComponent },
   { path: 'detail/:id', component: DetailComponent },
   { path: 'favorites', component: FavoritesComponent },
   { path: 'contact', component: ContactComponent },
@@ -19,7 +19,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled', // Add options right here
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
