@@ -7,8 +7,6 @@ import { FavoriteStorageService } from 'src/app/service/favorite-storage.service
   styleUrls: ['./movie-card.component.less'],
 })
 export class MovieCardComponent implements OnInit {
-  @Input() imageUrl: string = '';
-  @Input() id: number = 0;
   @Input() isFav: boolean = false;
   @Input() data: any = {};
 

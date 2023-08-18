@@ -4,7 +4,7 @@
   top: 0;
   width: 100%;
   padding: 5px 20px;
-  background-color: rgba(0, 0, 0, 0.256);
+  background-color: rgba(0, 0, 0,  0.1);
   transition: 0.5s all ease;
 
   .top__bar-ctn {
@@ -63,16 +63,25 @@
       .nav__list {
         padding-top: 5px;
         padding-bottom: 5px;
-        list-style: none;
+        width: min-content;
+        display: flex;
+        justify-content: flex-end;list-style: none;
 
         .nav__list-btn {
           display: none;
           color: white;
+          margin-left: 20px;
+        }
+
+        .nav__list-btn:nth-child(3) {
+
+          display: block;
         }
 
         .nav__list-btn:last-child {
           display: block;
         }
+
       }
     }
   }
@@ -93,6 +102,9 @@
       }
 
       .nav__ctn {
+        display: flex;
+        align-items: center;
+
         .nav__search {
           display: block;
           text-align: right;
@@ -119,11 +131,10 @@
         }
 
         .nav__list {
-          width: 100%;
-          max-width: 400px;
+          width: min-content;
           display: flex;
           justify-content: flex-end;
-          padding-top: 10px;
+          padding-top: 0;
           padding-bottom: 5px;
           list-style: none;
 

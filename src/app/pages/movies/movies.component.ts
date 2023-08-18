@@ -5,10 +5,10 @@ import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service'
 MovieCardComponent;
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.less'],
+  templateUrl: './movies.component.html',
+  styleUrls: ['./movies.component.less'],
 })
-export class ListComponent implements OnInit {
+export class MoviesComponent implements OnInit {
   movies: any;
   loading: boolean = false;
 

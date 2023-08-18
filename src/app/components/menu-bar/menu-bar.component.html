@@ -1,37 +1,31 @@
-<header class="bottom-bar">
-  <nav>
-    <ul class="controls">
-      <li class="list control active-btn" data-id="home">
-        <a routerLink="/" class="button-container">
-          <span class="icon"><i class="fas fa-home"></i></span>
-          <span class="text">Home</span>
-        </a>
-      </li>
-      <li class="list control" data-id="about">
-        <a routerLink="/list/all" class="button-container">
-          <span class="icon"><i class="fas fa-user"></i></span>
-          <span class="text">Movies</span>
-        </a>
-      </li>
-      <li class="list control" data-id="about">
-        <a routerLink="/search" class="button-container">
-          <span class="icon"><i class="fas fa-user"></i></span>
-          <span class="text">search</span>
-        </a>
-      </li>
-      <li class="list control" data-id="portfolio">
-        <a routerLink="/favorites" class="button-container">
-          <span class="icon"><i class="fas fa-briefcase"></i></span>
-          <span class="text">favorites</span>
-        </a>
-      </li>
-      <li class="list control" data-id="blogs">
-        <a routerLink="/contact" class="button-container">
-          <span class="icon"><i class="far fa-newspaper"></i></span>
-          <span class="text">contact</span>
-        </a>
-      </li>
-      <div class="indicator"></div>
-    </ul>
-  </nav>
-</header>
+<nav class="bottom__bar {{ navbg }}">
+  <ul class="bottom__bar-btns">
+    <li
+      class="bottom__bar-btn {{ location === 'home' ? 'active-btn' : '' }}"
+      data-id="home"
+    >
+      <a routerLink="/" class="button-container">
+        <span class="icon"><i class="fas fa-home"></i></span>
+        <span class="text">Home</span>
+      </a>
+    </li>
+    <li
+      class="bottom__bar-btn {{ location === 'movies' ? 'active-btn' : '' }}"
+      data-id="about"
+    >
+      <a routerLink="/movies" class="button-container">
+        <span class="icon"><i class="fas fa-user"></i></span>
+        <span class="text">Movies</span>
+      </a>
+    </li>
+    <li
+      class="bottom__bar-btn {{ location === 'favorites' ? 'active-btn' : '' }}"
+      data-id="portfolio"
+    >
+      <a routerLink="/favorites" class="button-container">
+        <span class="icon"><i class="fas fa-briefcase"></i></span>
+        <span class="text">Favorites</span>
+      </a>
+    </li>
+  </ul>
+</nav>
