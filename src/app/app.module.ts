@@ -18,6 +18,8 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
 import { ContactComponent } from './pages/contact/contact.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
+import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
+import { SearchCardComponent } from './components/search-card/search-card.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
     ContactComponent,
     ErrorComponent,
     MenuBarComponent,
+    FavoriteButtonComponent,
+    SearchCardComponent,
   ],
   imports: [
     BrowserModule,

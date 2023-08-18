@@ -21,7 +21,7 @@ export class MoviesComponent implements OnInit {
   trendingData() {
     this.loading = true;
     this.service.trendingMovieApiData().subscribe((result) => {
-      // console.log(result, 'trendingResult');
+      console.log(result, 'movies');
       this.movies = result.results;
       this.loading = false;
     });
