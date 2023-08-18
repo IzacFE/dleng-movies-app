@@ -20,6 +20,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
 import { SearchCardComponent } from './components/search-card/search-card.component';
+import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SearchCardComponent } from './components/search-card/search-card.compon
     MenuBarComponent,
     FavoriteButtonComponent,
     SearchCardComponent,
+    HeroBannerComponent,
   ],
   imports: [
     BrowserModule,

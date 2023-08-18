@@ -1,6 +1,8 @@
 <!-- banner start -->
 <div>
-  <div *ngFor="let banner of bannerResult">
+  <ng-container *ngIf="!loading">
+    <app-hero-banner [slides]="bannerResult"></app-hero-banner>
+    <!-- <div *ngFor="let banner of bannerResult">
     <a routerLink="/detail/{{ banner.id }}">
       <img
         src="https://image.tmdb.org/t/p/original{{ banner.backdrop_path }}"
@@ -10,20 +12,34 @@
       <h2>{{ banner.original_title }}</h2>
       <p>{{ banner.overview }}</p>
     </a>
-  </div>
-  <ul>
-    <li *ngFor="let trending of trendingResult">
-      <a routerLink="/detail/{{ trending.id }}">
+  </div> -->
+    <!-- <div *ngFor="let banner of bannerResult">
+      <a routerLink="/detail/{{ banner.id }}">
         <img
-          src="https://image.tmdb.org/t/p/original{{ trending.backdrop_path }}"
+          src="https://image.tmdb.org/t/p/original{{ banner.backdrop_path }}"
           alt=""
           width="250px"
         />
-        <h2>{{ trending.original_title }}</h2>
-        <p>{{ trending.overview }}</p>
+        <h2>{{ banner.original_title }}</h2>
+        <p>{{ banner.overview }}</p>
       </a>
-    </li>
-  </ul>
+    </div>
+    <ul>
+      <li *ngFor="let trending of trendingResult">
+        <a routerLink="/detail/{{ trending.id }}">
+          <img
+            src="https://image.tmdb.org/t/p/original{{
+              trending.backdrop_path
+            }}"
+            alt=""
+            width="250px"
+          />
+          <h2>{{ trending.original_title }}</h2>
+          <p>{{ trending.overview }}</p>
+        </a>
+      </li>
+    </ul> -->
+  </ng-container>
 </div>
 <!-- banner end -->
 <app-menu-bar [location]="'home'"></app-menu-bar>

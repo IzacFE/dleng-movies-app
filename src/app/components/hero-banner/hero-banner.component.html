@@ -1,0 +1,60 @@
+<div class="slider">
+  <div>
+    <div (click)="goToPrevious()" class="leftArrow">❰</div>
+    <div (click)="goToNext()" class="rightArrow">❱</div>
+  </div>
+  <div
+    class="slide"
+    [ngStyle]="{
+      'background-image': 'url(https://image.tmdb.org/t/p/original' + url + ')'
+    }"
+  >
+    <div class="hero__card">
+      <img
+        src="https://image.tmdb.org/t/p/original{{
+          getCurrentSlideUrl().poster_path
+        }}"
+        alt="{{ getCurrentSlideUrl().original_title }}"
+        class="movie__card-img"
+        loading="lazy"
+        width="250px"
+      />
+    </div>
+    <div class="search__desc">
+      <div class="first__row">
+        <h2 class="movie__title">{{ slides[currentIndex].title }}</h2>
+      </div>
+      <div class="second__row">
+        <div class="rating__ctn">
+          <div class="rating__star">
+            <div
+              class="overlay"
+              [style]="
+                'height: ' + slides[currentIndex].vote_average * 10 + '%'
+              "
+            ></div>
+          </div>
+          <p class="rating__num">{{ slides[currentIndex].vote_average }}</p>
+          <p class="rating__vote">( {{ slides[currentIndex].vote_count }} )</p>
+        </div>
+
+        <app-favorite-button
+          [data]="slides[currentIndex]"
+        ></app-favorite-button>
+      </div>
+      <div class="third__row">
+        <p class="overview">{{ slides[currentIndex].overview }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dotsContainer">
+    <div
+      *ngFor="let slide of slides; let slideIndex = index"
+      class="dot"
+      (click)="goToSlide(slideIndex)"
+    >
+      ●
+    </div>
+  </div>
+</div>
