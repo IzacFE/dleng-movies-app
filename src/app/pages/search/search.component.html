@@ -6,21 +6,11 @@
   </form>
 
   <ul class="results" *ngIf="searchResult">
-    <li *ngFor="let movie of searchResult">
-      <a
-        routerLink="/detail/{{
-          movie.media_type ? movie.media_type : 'other'
-        }}/{{ movie.id }}"
-      >
-        <img
-          src="https://image.tmdb.org/t/p/original{{ movie.backdrop_path }}"
-          alt=""
-          width="250px"
-        />
-        <h2>{{ movie.original_title }}</h2>
-        <p>{{ movie.overview }}</p></a
-      >
-    </li>
+    <ng-container *ngIf="!loading">
+      <div *ngFor="let item of searchResult; let index">
+        <app-movie-card [data]="item"></app-movie-card>
+      </div>
+    </ng-container>
   </ul>
 </main>
 <app-menu-bar></app-menu-bar>
