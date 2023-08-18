@@ -1,6 +1,5 @@
 <main class="search__page">
   <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
-    <label for="search">Search</label>
     <input type="text" placeholder="search..." formControlName="searchName" />
     <button>search</button>
   </form>
@@ -8,7 +7,7 @@
   <ul class="results" *ngIf="searchResult">
     <ng-container *ngIf="!loading">
       <div *ngFor="let item of searchResult; let index">
-        <app-movie-card [data]="item"></app-movie-card>
+        <app-search-card [data]="item"></app-search-card>
       </div>
     </ng-container>
   </ul>

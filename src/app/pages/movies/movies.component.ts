@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieCardComponent } from 'src/app/components/movie-card/movie-card.component';
-import { Movies } from 'src/app/model/movie';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
 MovieCardComponent;
 @Component({
