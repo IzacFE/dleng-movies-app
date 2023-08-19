@@ -21,6 +21,7 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
 import { SearchCardComponent } from './components/search-card/search-card.component';
 import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HeroBannerComponent } from './components/hero-banner/hero-banner.compon
     FavoriteButtonComponent,
     SearchCardComponent,
     HeroBannerComponent,
+    StarRatingComponent,
   ],
   imports: [
     BrowserModule,

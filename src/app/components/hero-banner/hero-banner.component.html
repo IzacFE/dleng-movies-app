@@ -1,60 +1,45 @@
 <div class="slider">
-  <div>
-    <div (click)="goToPrevious()" class="leftArrow">❰</div>
-    <div (click)="goToNext()" class="rightArrow">❱</div>
-  </div>
   <div
     class="slide"
-    [ngStyle]="{
-      'background-image': 'url(https://image.tmdb.org/t/p/original' + url + ')'
+    [style]="{
+      'background-image':
+        'url(https://image.tmdb.org/t/p/original' +
+        getCurrentSlideUrl().backdrop_path +
+        ')'
     }"
   >
-    <div class="hero__card">
-      <img
-        src="https://image.tmdb.org/t/p/original{{
-          getCurrentSlideUrl().poster_path
-        }}"
-        alt="{{ getCurrentSlideUrl().original_title }}"
-        class="movie__card-img"
-        loading="lazy"
-        width="250px"
-      />
-    </div>
-    <div class="search__desc">
-      <div class="first__row">
-        <h2 class="movie__title">{{ slides[currentIndex].title }}</h2>
-      </div>
-      <div class="second__row">
-        <div class="rating__ctn">
-          <div class="rating__star">
-            <div
-              class="overlay"
-              [style]="
-                'height: ' + slides[currentIndex].vote_average * 10 + '%'
-              "
-            ></div>
+    <div _ngcontent-ng-c3624030471="" class="bg__shadow"></div>
+    <div class="hero__ctn">
+      <a routerLink="/detail/{{ slides[currentIndex].id }}" class="hero__card">
+        <img
+          src="https://image.tmdb.org/t/p/original{{
+            getCurrentSlideUrl().poster_path
+          }}"
+          alt="{{ getCurrentSlideUrl().original_title }}"
+          class="hero__card-img"
+          loading="lazy"
+        />
+      </a>
+      <div class="search__desc">
+        <div class="first__row">
+          <div class="rating__ctn">
+            <app-star-rating
+              [data]="slides[currentIndex].vote_average"
+            ></app-star-rating>
+            <p class="rating__num">{{ slides[currentIndex].vote_average }}</p>
+            <p class="rating__vote">
+              ( {{ slides[currentIndex].vote_count }} )
+            </p>
           </div>
-          <p class="rating__num">{{ slides[currentIndex].vote_average }}</p>
-          <p class="rating__vote">( {{ slides[currentIndex].vote_count }} )</p>
+
+          <div class="release__date">
+            {{ slides[currentIndex].release_date }}
+          </div>
         </div>
-
-        <app-favorite-button
-          [data]="slides[currentIndex]"
-        ></app-favorite-button>
+        <div class="second__row">
+          <p class="overview">{{ slides[currentIndex].overview }}</p>
+        </div>
       </div>
-      <div class="third__row">
-        <p class="overview">{{ slides[currentIndex].overview }}</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="dotsContainer">
-    <div
-      *ngFor="let slide of slides; let slideIndex = index"
-      class="dot"
-      (click)="goToSlide(slideIndex)"
-    >
-      ●
     </div>
   </div>
 </div>
