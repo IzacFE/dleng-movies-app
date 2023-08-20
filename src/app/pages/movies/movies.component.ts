@@ -9,7 +9,7 @@ MovieCardComponent;
 })
 export class MoviesComponent implements OnInit {
   movies: any;
-  loading: boolean = false;
+  loading: boolean = true;
 
   constructor(private service: TmdbApiServiceService) {}
 

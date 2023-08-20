@@ -1,7 +1,14 @@
 <main class="search__page">
-  <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
-    <input type="search" placeholder="search..." formControlName="searchName" />
-    <button>search</button>
+  <form class="search__form" [formGroup]="searchForm" (ngSubmit)="submitForm()">
+    <input
+      class="search__input"
+      type="search"
+      placeholder="search..."
+      formControlName="searchName"
+    />
+    <button class="search__button" type="submit">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
   </form>
 
   <ul class="results" *ngIf="searchResult">
