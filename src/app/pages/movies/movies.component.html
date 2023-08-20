@@ -1,10 +1,18 @@
 <div>
-  <div class="page__ctn">
+  <div
+    class="page__ctn"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="500"
+    (scrolled)="onScroll()"
+    [scrollWindow]="true"
+  >
     <ng-container *ngIf="!loading">
       <div *ngFor="let item of movies; let index">
         <app-movie-card [data]="item"></app-movie-card>
       </div>
     </ng-container>
   </div>
+  <ng-container *ngIf="isLoading"></ng-container>
 </div>
 <app-menu-bar [location]="'movies'"></app-menu-bar>

@@ -15,9 +15,15 @@ export class TmdbApiServiceService {
   }
 
   // trendingmovieapidata
+  infiniteMovieApiData(page: number): Observable<any> {
+    return this.http.get(
+      `${this.baseUrl}/movie/popular?api_key=${this.tmdbApiKey}&page=${page}`
+    );
+  }
+  // trendingmovieapidata
   trendingMovieApiData(): Observable<any> {
     return this.http.get(
-      `${this.baseUrl}/movie/popular?api_key=${this.tmdbApiKey}`
+      `${this.baseUrl}/movie/popular?api_key=${this.tmdbApiKey}&page=1`
     );
   }
 

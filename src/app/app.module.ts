@@ -26,6 +26,7 @@ import { SlideCardComponent } from './components/slide-card/slide-card.component
 import { TrendingCardsComponent } from './components/trending-cards/trending-cards.component';
 import { DetailCardComponent } from './components/detail-card/detail-card.component';
 import { VideoComponent } from './components/video/video.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { VideoComponent } from './components/video/video.component';
     HttpClientModule,
     ReactiveFormsModule,
     YouTubePlayerModule,
+    InfiniteScrollModule,
   ],
   providers: [TmdbApiServiceService],
   bootstrap: [AppComponent],
