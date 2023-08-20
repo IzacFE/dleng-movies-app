@@ -1,29 +1,10 @@
 <!-- banner start -->
 <div>
-  <div *ngFor="let banner of bannerResult">
-    <a routerLink="/detail/{{ banner.id }}">
-      <img
-        src="https://image.tmdb.org/t/p/original{{ banner.backdrop_path }}"
-        alt=""
-        width="250px"
-      />
-      <h2>{{ banner.original_title }}</h2>
-      <p>{{ banner.overview }}</p>
-    </a>
-  </div>
-  <ul>
-    <li *ngFor="let trending of trendingResult">
-      <a routerLink="/detail/{{ trending.id }}">
-        <img
-          src="https://image.tmdb.org/t/p/original{{ trending.backdrop_path }}"
-          alt=""
-          width="250px"
-        />
-        <h2>{{ trending.original_title }}</h2>
-        <p>{{ trending.overview }}</p>
-      </a>
-    </li>
-  </ul>
+  <app-hero-banner></app-hero-banner>
+
+  <app-slide-card [type]="'Now Playing'"></app-slide-card>
+
+  <app-slide-card [type]="'Upcoming'"></app-slide-card>
 </div>
 <!-- banner end -->
 <app-menu-bar [location]="'home'"></app-menu-bar>

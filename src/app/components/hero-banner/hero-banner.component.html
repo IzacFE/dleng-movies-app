@@ -1,0 +1,52 @@
+<ng-container *ngIf="!bannerLoad">
+  <div class="slider">
+    <div
+      class="slide"
+      [style]="{
+        'background-image':
+          'url(https://image.tmdb.org/t/p/original' +
+          getCurrentSlideUrl().backdrop_path +
+          ')'
+      }"
+    >
+      <div _ngcontent-ng-c3624030471="" class="bg__shadow"></div>
+      <div class="hero__ctn">
+        <a
+          routerLink="/detail/{{ bannerResult[currentIndex].id }}"
+          class="hero__card"
+        >
+          <img
+            src="https://image.tmdb.org/t/p/original{{
+              getCurrentSlideUrl().poster_path
+            }}"
+            alt="{{ getCurrentSlideUrl().original_title }}"
+            class="hero__card-img"
+            loading="lazy"
+          />
+        </a>
+        <div class="search__desc">
+          <div class="first__row">
+            <div class="rating__ctn">
+              <app-star-rating
+                [data]="bannerResult[currentIndex].vote_average"
+              ></app-star-rating>
+              <p class="rating__num">
+                {{ bannerResult[currentIndex].vote_average }}
+              </p>
+              <p class="rating__vote">
+                ( {{ bannerResult[currentIndex].vote_count }} )
+              </p>
+            </div>
+
+            <div class="release__date">
+              {{ bannerResult[currentIndex].release_date }}
+            </div>
+          </div>
+          <div class="second__row">
+            <p class="overview">{{ bannerResult[currentIndex].overview }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

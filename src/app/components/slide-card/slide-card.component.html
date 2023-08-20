@@ -1,0 +1,16 @@
+<ng-container *ngIf="!dataLoad">
+  <div class="slider">
+    <h2 class="slider__title">{{ type }}</h2>
+    <div class="slider__box-ctn">
+      <div class="slider__ctn" *ngFor="let data of dataResult">
+        <a class="slider__link" routerLink="/detail/{{ data.id }}">
+          <img
+            src="https://image.tmdb.org/t/p/original{{ data.poster_path }}"
+            alt="{{ data.original_title }}"
+            class="slider__img"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</ng-container>

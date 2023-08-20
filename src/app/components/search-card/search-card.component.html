@@ -13,12 +13,7 @@
     </div>
     <div class="second__row">
       <div class="rating__ctn">
-        <div class="rating__star">
-          <div
-            class="overlay"
-            [style]="'height: ' + data.vote_average * 10 + '%'"
-          ></div>
-        </div>
+        <app-star-rating [data]="data.vote_average"></app-star-rating>
         <p class="rating__num">{{ data.vote_average }}</p>
         <p class="rating__vote">( {{ data.vote_count }} )</p>
       </div>

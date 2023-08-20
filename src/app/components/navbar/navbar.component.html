@@ -7,18 +7,6 @@
       </div>
     </a>
     <div class="nav__ctn">
-      <div class="nav__search">
-        <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
-          <input
-            type="text"
-            placeholder="search..."
-            formControlName="searchName"
-          />
-          <button class="search__btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-      </div>
       <ul class="nav__list">
         <li class="nav__list-btn">
           <a routerLink="/movies" class="nav__link">
