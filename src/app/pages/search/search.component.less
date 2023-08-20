@@ -1,8 +1,47 @@
 .search__page {
-  padding-top: 5vw;
+  padding-top: calc(2vw + 40px);
+
+  input {
+    border: 2px solid #aaa;
+    border-radius: 50px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: .3s;
+  }
+
+  input:focus {
+    // border-color: var(--pink);
+    box-shadow: 0 0 8px 0 var(--orange);
+  }
 
   .results {
+    padding-top: 5vw;
     display: flex;
     flex-wrap: wrap;
+    gap: 3vw;
+    width: 96vw;
+    margin: auto;
+
   }
+}
+
+
+
+@media screen and (min-width: 768px) {
+  .search__page {
+    padding-top: calc(2vw + 40px);
+
+    .results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2vw;
+      width: 62vw;
+      margin: auto;
+
+    }
+  }
+
+
 }

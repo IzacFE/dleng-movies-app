@@ -12,23 +12,33 @@
     display: flex;
     gap: 2vw;
     width: 97vw;
-    padding-bottom: 5vw;
     margin-left: 3vw;
     overflow: hidden;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     height: 52.2vw;
+    padding-bottom: 5vw;
 
     .slider__ctn {
       width: 28vw;
-      aspect-ratio: 2/3;
-      border-radius: 1.5vw;
+      display: flex;
+      position: relative;
+
+      .ranking__num {
+        position: absolute;
+        color: white;
+        font-size: 9vw;
+        padding-left: 2vw;
+        padding-bottom: 2vw;
+        width: 100%;
+        background-image: linear-gradient(0deg, hsla(0, 0%, 8%, 0) 0, hsla(0, 0%, 8%, 0.15) 15%, hsla(0, 0%, 8%, 0.35) 26%, hsla(0, 0%, 8%, 0.58) 37%, #13161f 72%, #13161f);
+      }
 
       .slider__link {
         display: block;
-        width: 100%;
-        height: 100%;
+        width: 28vw;
+        aspect-ratio: 2/3;
         border-radius: 1.5vw;
 
         .slider__img {
@@ -41,8 +51,6 @@
       }
     }
   }
-
-
 }
 
 @media (min-width:768px) {
@@ -69,6 +77,18 @@
         width: 15vw;
         aspect-ratio: 2/3;
         border-radius: 0.5vw;
+        display: flex;
+        position: relative;
+
+        .ranking__num {
+          position: absolute;
+          color: white;
+          font-size: 3vw;
+          padding-left: 1vw;
+          padding-bottom: 2vw;
+          width: 100%;
+          background-image: linear-gradient(0deg, hsla(0, 0%, 8%, 0) 0, hsla(0, 0%, 8%, 0.15) 15%, hsla(0, 0%, 8%, 0.35) 26%, hsla(0, 0%, 8%, 0.58) 37%, #13161f 72%, #13161f);
+        }
 
         .slider__link {
           display: block;

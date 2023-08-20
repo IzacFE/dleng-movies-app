@@ -23,6 +23,7 @@ import { SearchCardComponent } from './components/search-card/search-card.compon
 import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { SlideCardComponent } from './components/slide-card/slide-card.component';
+import { TrendingCardsComponent } from './components/trending-cards/trending-cards.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SlideCardComponent } from './components/slide-card/slide-card.component
     HeroBannerComponent,
     StarRatingComponent,
     SlideCardComponent,
+    TrendingCardsComponent,
   ],
   imports: [
     BrowserModule,
