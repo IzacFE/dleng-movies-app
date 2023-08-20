@@ -11,18 +11,55 @@ export class MoviesComponent implements OnInit {
   movies: any;
   loading: boolean = false;
 
+  items: string[] = [];
+  isLoading = false;
+  currentPage = 1;
+  itemsPerPage = 10;
+
   constructor(private service: TmdbApiServiceService) {}
 
   ngOnInit(): void {
     this.trendingData();
   }
 
+  toggleLoading() {
+    this.isLoading = !this.isLoading;
+  }
+
   trendingData() {
     this.loading = true;
-    this.service.trendingMovieApiData().subscribe((result) => {
-      console.log(result, 'movies');
-      this.movies = result.results;
-      this.loading = false;
+    this.service.infiniteMovieApiData(this.currentPage).subscribe({
+      next: (response) => (this.movies = response.results),
+      // console.log(result, 'movies');
+      error: (err) => console.log(err),
+      complete: () => {
+        this.loading = false;
+      },
+
+      // this.movies = result.results;
+      // this.loading = false;
     });
+    // this.service.infiniteMovieApiData(this.currentPage).subscribe((result) => {
+    //   console.log(result, 'movies');
+    //   this.movies = result.results;
+    //   this.loading = false;
+    // });
+  }
+
+  appendData() {
+    this.toggleLoading();
+    this.service.infiniteMovieApiData(this.currentPage).subscribe({
+      next: (response) => (this.movies = [...this.movies, ...response.results]),
+      // console.log(result, 'movies');
+      error: (err) => console.log(err),
+      complete: () => {
+        this.toggleLoading();
+      },
+    });
+  }
+
+  onScroll() {
+    this.currentPage++;
+    this.appendData();
   }
 }

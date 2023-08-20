@@ -1,0 +1,69 @@
+<ng-container *ngIf="loading == 2">
+  <div class="slider">
+    <div
+      class="slide"
+      [style]="{
+        'background-image':
+          'url(https://image.tmdb.org/t/p/original' +
+          getMovieDetailResult.backdrop_path +
+          ')'
+      }"
+    >
+      <div _ngcontent-ng-c3624030471="" class="bg__shadow"></div>
+      <div class="hero__ctn">
+        <div class="hero__card">
+          <img
+            src="https://image.tmdb.org/t/p/original{{
+              getMovieDetailResult.poster_path
+            }}"
+            alt="{{ getMovieDetailResult.original_title }}"
+            class="hero__card-img"
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <div class="search__desc">
+        <h1 class="movie__title">{{ getMovieDetailResult.original_title }}</h1>
+        <div class="first__row">
+          <p class="rating">Rating :</p>
+          <div class="rating__ctn">
+            <app-star-rating
+              [data]="getMovieDetailResult.vote_average"
+            ></app-star-rating>
+            <p class="rating__num">
+              {{ getMovieDetailResult.vote_average }}
+            </p>
+            <p class="rating__vote">
+              ( {{ getMovieDetailResult.vote_count }} )
+            </p>
+          </div>
+          <app-favorite-button
+            [data]="getMovieDetailResult"
+          ></app-favorite-button>
+        </div>
+        <div class="second__row">
+          <div class="release__date">
+            Release date : {{ getMovieDetailResult.release_date }}
+          </div>
+          <p class="overview">{{ getMovieDetailResult.overview }}</p>
+        </div>
+        <div class="third__row">
+          <p class="movie__casts">Actors</p>
+          <div class="movie__ctn">
+            <div
+              *ngFor="let char of getMovieCastResult | slice : 0 : 5"
+              class="character"
+            >
+              <img
+                src="https://image.tmdb.org/t/p/original{{ char.profile_path }}"
+                alt="{char.}"
+                class="cast__img"
+              />
+              <p class="cast__name">{{ char.name }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
