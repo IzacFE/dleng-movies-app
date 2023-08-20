@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
 
 @Component({
   selector: 'app-hero-banner',
@@ -6,16 +7,31 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./hero-banner.component.less'],
 })
 export class HeroBannerComponent implements OnInit, OnDestroy {
-  @Input() slides: any = [];
+  bannerLoad: boolean = false;
+  bannerResult: any = [];
 
   currentIndex: number = 0;
   timeoutId?: number;
+  constructor(private service: TmdbApiServiceService) {}
+
   ngOnInit(): void {
     this.resetTimer();
+    this.bannerData();
   }
+
+  bannerData() {
+    this.bannerLoad = true;
+    this.service.trendingMovieApiData().subscribe((result) => {
+      console.log(result, 'bannerresult');
+      this.bannerResult = result.results;
+    });
+    this.bannerLoad = false;
+  }
+
   ngOnDestroy() {
     window.clearTimeout(this.timeoutId);
   }
+
   resetTimer() {
     if (this.timeoutId) {
       window.clearTimeout(this.timeoutId);
@@ -24,7 +40,7 @@ export class HeroBannerComponent implements OnInit, OnDestroy {
   }
 
   goToNext(): void {
-    const isLastSlide = this.currentIndex === this.slides.length - 1;
+    const isLastSlide = this.currentIndex === this.bannerResult.length - 1;
     const newIndex = isLastSlide ? 0 : this.currentIndex + 1;
 
     this.resetTimer();
@@ -32,6 +48,6 @@ export class HeroBannerComponent implements OnInit, OnDestroy {
   }
 
   getCurrentSlideUrl() {
-    return this.slides[this.currentIndex];
+    return this.bannerResult[this.currentIndex];
   }
 }
