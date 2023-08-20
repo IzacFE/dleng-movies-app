@@ -1,23 +1,3 @@
-<h1>detail</h1>
-<div>
-  <div class="container" *ngIf="loading == 3">
-    <div class="left">
-      <img
-        src="https://image.tmdb.org/t/p/original{{
-          getMovieDetailResult.backdrop_path
-        }}"
-        alt=""
-        width="250px"
-      />
-    </div>
-    <div class="left">
-      <h2>{{ getMovieDetailResult.original_title }}</h2>
-      <p>{{ getMovieDetailResult.overview }}</p>
-    </div>
-    <div class="videos">
-      <youtube-player videoId="{{ getMovieVideosResult[0].key }}">
-      </youtube-player>
-    </div>
-  </div>
-</div>
+<app-detail-card></app-detail-card>
+<app-video></app-video>
 <app-menu-bar></app-menu-bar>

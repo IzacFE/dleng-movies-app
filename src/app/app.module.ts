@@ -24,6 +24,8 @@ import { HeroBannerComponent } from './components/hero-banner/hero-banner.compon
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { SlideCardComponent } from './components/slide-card/slide-card.component';
 import { TrendingCardsComponent } from './components/trending-cards/trending-cards.component';
+import { DetailCardComponent } from './components/detail-card/detail-card.component';
+import { VideoComponent } from './components/video/video.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { TrendingCardsComponent } from './components/trending-cards/trending-car
     StarRatingComponent,
     SlideCardComponent,
     TrendingCardsComponent,
+    DetailCardComponent,
+    VideoComponent,
   ],
   imports: [
     BrowserModule,
