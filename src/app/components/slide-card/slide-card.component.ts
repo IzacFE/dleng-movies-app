@@ -24,7 +24,6 @@ export class SlideCardComponent {
   upComingData() {
     this.dataLoad = true;
     this.service.getUpcomingMovies().subscribe((result) => {
-      console.log(result, 'trendingResult');
       this.dataResult = result.results;
     });
     this.dataLoad = false;
@@ -33,7 +32,6 @@ export class SlideCardComponent {
   nowPlayingData() {
     this.dataLoad = true;
     this.service.getNowPlayingMovies().subscribe((result) => {
-      console.log(result, 'actionResult');
       this.dataResult = result.results;
     });
     this.dataLoad = false;

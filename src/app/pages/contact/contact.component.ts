@@ -25,8 +25,6 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {}
 
   public onSubmit() {
-    console.log(this.googleSheetForm.value);
-
     const name = this.googleSheetForm.value.name;
     const email = this.googleSheetForm.value.email;
     const phone = this.googleSheetForm.value.phone;
