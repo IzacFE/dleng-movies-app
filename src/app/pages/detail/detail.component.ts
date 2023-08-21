@@ -26,7 +26,6 @@ export class DetailComponent implements OnInit {
 
   getMovieData(id: string | null) {
     this.service.getMovieDetails(id).subscribe((result) => {
-      console.log(result);
       this.getMovieDetailResult = result;
       this.loading++;
     });
@@ -34,7 +33,6 @@ export class DetailComponent implements OnInit {
 
   getMovieVideos(id: string | null) {
     this.service.getMovieVideo(id).subscribe((result) => {
-      console.log(result);
       this.getMovieVideosResult = result.results;
       this.loading++;
     });
@@ -42,7 +40,6 @@ export class DetailComponent implements OnInit {
 
   getMovieCast(id: string | null) {
     this.service.getMovieCast(id).subscribe((result) => {
-      console.log(result);
       this.getMovieCastResult = result;
       this.loading++;
     });

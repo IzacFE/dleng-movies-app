@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
 
@@ -7,14 +7,10 @@ import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service'
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.less'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   searchResult: any;
   loading: boolean = false;
   constructor(private service: TmdbApiServiceService) {}
-
-  ngOnInit(): void {
-    // this.trendingData();
-  }
 
   searchForm = new FormGroup({
     searchName: new FormControl(null),
@@ -22,11 +18,11 @@ export class SearchComponent implements OnInit {
 
   submitForm() {
     this.loading = true;
-    console.log(this.searchForm.value, 'searchForm');
-    this.service.getSearchMovie(this.searchForm.value).subscribe((result) => {
-      console.log(result, 'resultMovie');
-      this.searchResult = result.results;
-      this.loading = false;
-    });
+    this.service
+      .getSearchMovie(this.searchForm.value.searchName!)
+      .subscribe((result) => {
+        this.searchResult = result.results;
+        this.loading = false;
+      });
   }
 }

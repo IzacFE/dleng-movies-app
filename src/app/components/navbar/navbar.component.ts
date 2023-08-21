@@ -15,9 +15,7 @@ export class NavbarComponent {
     searchName: new FormControl(null),
   });
 
-  submitForm() {
-    console.log(this.searchForm.value, 'searchForm');
-  }
+  submitForm() {}
 
   @HostListener('document:scroll') scrollover() {
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {

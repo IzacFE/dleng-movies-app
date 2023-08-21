@@ -49,32 +49,30 @@ export class TmdbApiServiceService {
   }
 
   // searchmovive
-  getSearchMovie(data: any): Observable<any> {
-    console.log(data, 'movie#');
-
+  getSearchMovie(data: string | null): Observable<any> {
     return this.http.get(
-      `${this.baseUrl}/search/movie?api_key=${this.tmdbApiKey}&query=${data.searchName}`
+      `${this.baseUrl}/search/movie?api_key=${this.tmdbApiKey}&query=${data}`
     );
   }
 
   // getmoviedatails
-  getMovieDetails(data: any): Observable<any> {
+  getMovieDetails(id: string | null): Observable<any> {
     return this.http.get(
-      `${this.baseUrl}/movie/${data}?api_key=${this.tmdbApiKey}`
+      `${this.baseUrl}/movie/${id}?api_key=${this.tmdbApiKey}`
     );
   }
 
   // getMovieVideo
-  getMovieVideo(data: any): Observable<any> {
+  getMovieVideo(id: string | null): Observable<any> {
     return this.http.get(
-      `${this.baseUrl}/movie/${data}/videos?api_key=${this.tmdbApiKey}`
+      `${this.baseUrl}/movie/${id}/videos?api_key=${this.tmdbApiKey}`
     );
   }
 
   // getMovieCast
-  getMovieCast(data: any): Observable<any> {
+  getMovieCast(id: string | null): Observable<any> {
     return this.http.get(
-      `${this.baseUrl}/movie/${data}/credits?api_key=${this.tmdbApiKey}`
+      `${this.baseUrl}/movie/${id}/credits?api_key=${this.tmdbApiKey}`
     );
   }
 }

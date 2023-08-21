@@ -35,7 +35,6 @@ export class FavoriteButtonComponent {
     } else {
       this.isFav = '';
     }
-    console.log(this.isFav, 'fav');
   }
 
   onFavClick(movie: any): void {
