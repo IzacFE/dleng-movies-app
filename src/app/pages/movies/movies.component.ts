@@ -30,27 +30,17 @@ export class MoviesComponent implements OnInit {
     this.loading = true;
     this.service.infiniteMovieApiData(this.currentPage).subscribe({
       next: (response) => (this.movies = response.results),
-      // console.log(result, 'movies');
       error: (err) => console.log(err),
       complete: () => {
         this.loading = false;
       },
-
-      // this.movies = result.results;
-      // this.loading = false;
     });
-    // this.service.infiniteMovieApiData(this.currentPage).subscribe((result) => {
-    //   console.log(result, 'movies');
-    //   this.movies = result.results;
-    //   this.loading = false;
-    // });
   }
 
   appendData() {
     this.toggleLoading();
     this.service.infiniteMovieApiData(this.currentPage).subscribe({
       next: (response) => (this.movies = [...this.movies, ...response.results]),
-      // console.log(result, 'movies');
       error: (err) => console.log(err),
       complete: () => {
         this.toggleLoading();

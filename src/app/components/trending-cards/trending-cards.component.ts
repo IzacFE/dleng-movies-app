@@ -18,7 +18,6 @@ export class TrendingCardsComponent implements OnInit {
   trendingData() {
     this.dataLoad = true;
     this.service.trendingMovieApiData().subscribe((result) => {
-      console.log(result, 'trendingResult');
       this.dataResult = result.results;
     });
     this.dataLoad = false;

@@ -22,7 +22,6 @@ export class HeroBannerComponent implements OnInit, OnDestroy {
   bannerData() {
     this.bannerLoad = true;
     this.service.trendingMovieApiData().subscribe((result) => {
-      console.log(result, 'bannerresult');
       this.bannerResult = result.results;
     });
     this.bannerLoad = false;
