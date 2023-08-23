@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Video } from 'src/app/models/video';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class VideoComponent implements OnInit {
     private service: TmdbApiServiceService,
     private router: ActivatedRoute
   ) {}
-  getMovieVideosResult: any[] = [];
+  getMovieVideosResult: Video[] = [];
   loading: boolean = true;
 
   ngOnInit(): void {

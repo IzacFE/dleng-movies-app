@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Movie } from 'src/app/models/movie';
 import { FavoriteStorageService } from 'src/app/service/favorite-storage.service';
 
 @Component({
@@ -7,11 +8,11 @@ import { FavoriteStorageService } from 'src/app/service/favorite-storage.service
   styleUrls: ['./favorite-button.component.less'],
 })
 export class FavoriteButtonComponent {
-  @Input() data: any = {};
+  @Input() data!: Movie;
 
   isLoading: boolean = false;
   isFav: boolean = false;
-  favorites: any;
+  favorites!: Movie[];
 
   constructor(private favoriteService: FavoriteStorageService) {}
   ngOnInit(): void {
@@ -33,26 +34,28 @@ export class FavoriteButtonComponent {
     this.isFav = !this.isFav;
   }
 
-  addFavorite(movie: any) {
+  addFavorite(movie: Movie) {
     this.favoriteService.addFavorite(movie);
   }
 
-  deleteFavorite(movie: any) {
+  deleteFavorite(movie: Movie) {
     this.favoriteService.deleteFavorite(movie);
   }
 
   checkFavorite() {
     const index = this.favorites.findIndex(
-      (item: any) => item.id === this.data.id
+      (item: Movie) => item.id === this.data.id
     );
     if (index >= 0) {
       this.isFav = true;
     }
   }
 
-  onFavClick(movie: any): void {
+  onFavClick(movie: Movie): void {
     this.changeFav();
-    const index = this.favorites.findIndex((item: any) => item.id === movie.id);
+    const index = this.favorites.findIndex(
+      (item: Movie) => item.id === movie.id
+    );
 
     if (index < 0) {
       this.addFavorite(movie);

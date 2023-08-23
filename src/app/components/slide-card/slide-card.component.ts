@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Movie } from 'src/app/models/movie';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class SlideCardComponent {
   @Input() type!: string;
 
   dataLoad: boolean = false;
-  dataResult: any = this.service;
+  dataResult!: Movie[];
 
   constructor(private service: TmdbApiServiceService) {}
   ngOnInit(): void {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Cast } from 'src/app/models/cast';
+import { Movie } from 'src/app/models/movie';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
 
 @Component({
@@ -12,9 +14,8 @@ export class DetailCardComponent implements OnInit {
     private service: TmdbApiServiceService,
     private router: ActivatedRoute
   ) {}
-  getMovieDetailResult: any;
-  getMovieVideosResult: any;
-  getMovieCastResult: any[] = [];
+  getMovieDetailResult!: Movie;
+  getMovieCastResult: Cast[] = [];
   loading = 0;
 
   ngOnInit(): void {
