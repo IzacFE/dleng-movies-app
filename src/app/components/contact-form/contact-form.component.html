@@ -1,0 +1,54 @@
+<form
+  class="contact__form"
+  [formGroup]="googleSheetForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="contact__row">
+    <label class="contact__label" for="name">Name</label>
+    <input
+      class="contact__input"
+      type="text"
+      id="name"
+      formControlName="name"
+    />
+  </div>
+  <div class="contact__row">
+    <label class="contact__label" for="email"
+      >Email <span class="label__small"> *optional</span></label
+    >
+    <input
+      class="contact__input"
+      type="email"
+      id="email"
+      formControlName="email"
+    />
+  </div>
+  <div class="contact__row">
+    <label class="contact__label" for="phone"
+      >Phone <span class="label__small"> *optional </span></label
+    >
+    <input
+      class="contact__input"
+      type="number"
+      id="phone"
+      formControlName="phone"
+    />
+  </div>
+  <div class="contact__row">
+    <label class="contact__label" for="message">Message</label>
+    <textarea
+      class="contact__input"
+      type="textarea"
+      id="message"
+      formControlName="message"
+    >
+  Write your message...
+  </textarea
+    >
+  </div>
+  <div class="contact__row">
+    <button [disabled]="loading" class="contact__btn" role="button">
+      Submit
+    </button>
+  </div>
+</form>
