@@ -32,7 +32,6 @@ export class MoviesComponent implements OnInit {
     this.service.infiniteMovieApiData(this.currentPage).subscribe({
       next: (response) => {
         this.movies = response.results;
-        console.log(response);
       },
       error: (err) => console.log(err),
       complete: () => {
