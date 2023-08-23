@@ -12,6 +12,7 @@ export class FavoriteButtonComponent {
   isLoading: boolean = false;
   isFav: boolean = false;
   favorites: any;
+
   constructor(private favoriteService: FavoriteStorageService) {}
   ngOnInit(): void {
     this.isLoading = true;
