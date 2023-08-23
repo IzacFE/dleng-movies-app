@@ -29,6 +29,7 @@ import { DetailCardComponent } from './components/detail-card/detail-card.compon
 import { VideoComponent } from './components/video/video.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     DetailCardComponent,
     VideoComponent,
     ContactFormComponent,
+    ScrollTopComponent,
   ],
   imports: [
     BrowserModule,
