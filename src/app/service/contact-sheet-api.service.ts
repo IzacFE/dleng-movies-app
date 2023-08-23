@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Sheet } from '../model/sheet';
+import { Sheet } from '../models/sheet';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

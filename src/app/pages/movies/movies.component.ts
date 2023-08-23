@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieCardComponent } from 'src/app/components/movie-card/movie-card.component';
+import { Movie } from 'src/app/models/movie';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
 MovieCardComponent;
 @Component({
@@ -8,7 +9,7 @@ MovieCardComponent;
   styleUrls: ['./movies.component.less'],
 })
 export class MoviesComponent implements OnInit {
-  movies: any;
+  movies!: Movie[];
   loading: boolean = false;
 
   items: string[] = [];
@@ -29,7 +30,10 @@ export class MoviesComponent implements OnInit {
   trendingData() {
     this.loading = true;
     this.service.infiniteMovieApiData(this.currentPage).subscribe({
-      next: (response) => (this.movies = response.results),
+      next: (response) => {
+        this.movies = response.results;
+        console.log(response);
+      },
       error: (err) => console.log(err),
       complete: () => {
         this.loading = false;

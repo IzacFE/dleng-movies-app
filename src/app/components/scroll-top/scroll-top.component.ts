@@ -8,11 +8,6 @@ import { ViewportScroller } from '@angular/common';
 })
 export class ScrollTopComponent {
   isShow: string = '';
-  viewport: any;
-
-  constructor(viewport: ViewportScroller) {
-    this.viewport = viewport;
-  }
 
   @HostListener('document:scroll') scrollover() {
     if (

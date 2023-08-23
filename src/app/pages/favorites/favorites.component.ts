@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from 'src/app/models/movie';
 import { FavoriteStorageService } from 'src/app/service/favorite-storage.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { FavoriteStorageService } from 'src/app/service/favorite-storage.service
   styleUrls: ['./favorites.component.less'],
 })
 export class FavoritesComponent implements OnInit {
-  favorites: any;
+  favorites!: Movie[];
   loading: boolean = false;
 
   constructor(private favoriteService: FavoriteStorageService) {}
@@ -27,11 +28,11 @@ export class FavoritesComponent implements OnInit {
     );
   }
 
-  addFavorite(movie: any) {
+  addFavorite(movie: Movie) {
     this.favoriteService.addFavorite(movie);
   }
 
-  deleteFavorite(todo: any) {
+  deleteFavorite(todo: Movie) {
     this.favoriteService.deleteFavorite(todo);
   }
 }

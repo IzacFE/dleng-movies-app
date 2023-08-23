@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Movie } from 'src/app/models/movie';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service'
 })
 export class HeroBannerComponent implements OnInit, OnDestroy {
   bannerLoad: boolean = false;
-  bannerResult: any = [];
+  bannerResult: Movie[] = [];
 
   currentIndex: number = 0;
   timeoutId?: number;
