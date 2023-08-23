@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { TrendingCardsComponent } from './components/trending-cards/trending-car
 import { DetailCardComponent } from './components/detail-card/detail-card.component';
 import { VideoComponent } from './components/video/video.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     TrendingCardsComponent,
     DetailCardComponent,
     VideoComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     ReactiveFormsModule,
     YouTubePlayerModule,
     InfiniteScrollModule,
+    SweetAlert2Module,
   ],
   providers: [TmdbApiServiceService],
   bootstrap: [AppComponent],
