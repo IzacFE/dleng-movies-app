@@ -9,13 +9,27 @@ import { FavoriteStorageService } from 'src/app/service/favorite-storage.service
 export class FavoriteButtonComponent {
   @Input() data: any = {};
 
-  isFav: string = '';
+  isLoading: boolean = false;
+  isFav: boolean = false;
   favorites: any;
   constructor(private favoriteService: FavoriteStorageService) {}
   ngOnInit(): void {
-    this.favoriteService.getFavorites().subscribe((favorites) => {
-      this.favorites = favorites;
-    });
+    this.isLoading = true;
+    this.favoriteService.getFavorites().subscribe(
+      (favorites) => {
+        this.favorites = favorites;
+      },
+      (err) => {
+        console.log('HTTP Error', err);
+      },
+      () => {
+        this.checkFavorite();
+      }
+    );
+  }
+
+  changeFav() {
+    this.isFav = !this.isFav;
   }
 
   addFavorite(movie: any) {
@@ -30,22 +44,19 @@ export class FavoriteButtonComponent {
     const index = this.favorites.findIndex(
       (item: any) => item.id === this.data.id
     );
-    if (index > 0) {
-      this.isFav = 'favorite';
-    } else {
-      this.isFav = '';
+    if (index >= 0) {
+      this.isFav = true;
     }
   }
 
   onFavClick(movie: any): void {
+    this.changeFav();
     const index = this.favorites.findIndex((item: any) => item.id === movie.id);
 
     if (index < 0) {
       this.addFavorite(movie);
-      this.isFav = '';
     } else {
       this.deleteFavorite(movie);
-      this.isFav = 'favorite';
     }
   }
 }
