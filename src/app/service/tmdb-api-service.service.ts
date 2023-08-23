@@ -20,6 +20,7 @@ export class TmdbApiServiceService {
       `${this.baseUrl}/movie/popular?api_key=${this.tmdbApiKey}&page=${page}`
     );
   }
+
   // trendingmovieapidata
   trendingMovieApiData(): Observable<any> {
     return this.http.get(
@@ -49,9 +50,9 @@ export class TmdbApiServiceService {
   }
 
   // searchmovive
-  getSearchMovie(data: string | null): Observable<any> {
+  getSearchMovie(data: string | null, page: number | null): Observable<any> {
     return this.http.get(
-      `${this.baseUrl}/search/movie?api_key=${this.tmdbApiKey}&query=${data}`
+      `${this.baseUrl}/search/movie?api_key=${this.tmdbApiKey}&query=${data}&page=${page}`
     );
   }
 

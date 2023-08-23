@@ -11,12 +11,21 @@
     </button>
   </form>
 
-  <ul class="results" *ngIf="searchResult">
+  <ul
+    class="results"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="500"
+    (scrolled)="onScroll()"
+    [scrollWindow]="true"
+    *ngIf="searchResult"
+  >
     <ng-container *ngIf="!loading">
       <div *ngFor="let item of searchResult; let index">
         <app-search-card [data]="item"></app-search-card>
       </div>
     </ng-container>
   </ul>
+  <ng-container *ngIf="isLoading"></ng-container>
 </main>
 <app-menu-bar></app-menu-bar>
