@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Movie } from 'src/app/models/movie';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service'
   styleUrls: ['./search.component.less'],
 })
 export class SearchComponent {
-  searchResult: any;
+  searchResult!: Movie[];
   loading: boolean = false;
 
   items: string[] = [];

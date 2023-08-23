@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from 'src/app/models/movie';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service'
 })
 export class TrendingCardsComponent implements OnInit {
   dataLoad: boolean = false;
-  dataResult: any = this.service;
+  dataResult: Movie[] = [];
 
   constructor(private service: TmdbApiServiceService) {}
   ngOnInit(): void {
