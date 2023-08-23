@@ -1,4 +1,6 @@
-<i
-  class="fa-solid fa-heart fav__icon favColor {{ isFav }}"
-  (click)="onFavClick(data)"
-></i>
+<ng-container *ngIf="isLoading">
+  <i
+    class="fa-solid fa-heart fav__icon favColor {{ isFav }}"
+    (click)="onFavClick(data)"
+  ></i>
+</ng-container>

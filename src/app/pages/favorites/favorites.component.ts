@@ -14,10 +14,17 @@ export class FavoritesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.favoriteService.getFavorites().subscribe((favorites) => {
-      this.favorites = favorites;
-      this.loading = false;
-    });
+    this.favoriteService.getFavorites().subscribe(
+      (favorites) => {
+        this.favorites = favorites;
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        this.loading = false;
+      }
+    );
   }
 
   addFavorite(movie: any) {
