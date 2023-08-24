@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { MovieCardComponent } from 'src/app/components/movie-card/movie-card.component';
 import { Movie } from 'src/app/models/movie';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
@@ -17,7 +18,29 @@ export class MoviesComponent implements OnInit {
   currentPage = 1;
   itemsPerPage = 10;
 
-  constructor(private service: TmdbApiServiceService) {}
+  constructor(
+    private service: TmdbApiServiceService,
+    private meta: Meta,
+    private title: Title
+  ) {
+    this.setSEO();
+  }
+
+  setSEO() {
+    this.title.setTitle('DLENG Movies List');
+    this.meta.addTags([
+      {
+        name: 'description',
+        content: 'DLENG list of movies to browse and check',
+      },
+      {
+        name: 'keywords',
+        content:
+          'Movies, Reviews, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast',
+      },
+      { name: 'robots', content: 'index,follow' },
+    ]);
+  }
 
   ngOnInit(): void {
     this.trendingData();
