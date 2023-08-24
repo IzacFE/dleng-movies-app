@@ -1,4 +1,4 @@
-import { Cast } from './cast';
+import { Crew } from './crew';
 
 export interface Movies<T> {
   page: number;
@@ -9,6 +9,6 @@ export interface Movies<T> {
 
 export interface Casts<T> {
   cast: T[];
-  crew: any[];
+  crew: Crew[];
   id: number;
 }

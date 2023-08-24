@@ -34,6 +34,8 @@ export class DetailCardComponent implements OnInit {
   getMovieCast(id: string | null) {
     this.service.getMovieCast(id).subscribe((result) => {
       this.getMovieCastResult = result.cast;
+      console.log(result);
+
       this.loading++;
     });
   }
