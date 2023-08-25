@@ -11,7 +11,7 @@ export class ErrorComponent {
     this.setSEO();
   }
 
-  setSEO() {
+  setSEO(): void {
     this.title.setTitle('DLENG Page is Not Found');
     this.meta.addTags([
       {

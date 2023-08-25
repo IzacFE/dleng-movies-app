@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { takeUntil } from 'rxjs';
 import { ContactSheetApiService } from 'src/app/service/contact-sheet-api.service';
+import { Unsub } from 'src/app/utils/unsub.class';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,7 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.less'],
 })
-export class ContactFormComponent {
+export class ContactFormComponent extends Unsub {
   googleSheetForm!: FormGroup;
   loading: boolean = false;
 
@@ -16,6 +18,7 @@ export class ContactFormComponent {
     private formBuilder: FormBuilder,
     private service: ContactSheetApiService
   ) {
+    super();
     this.googleSheetForm = this.formBuilder.group({
       name: formBuilder.control(null, Validators.required),
       email: formBuilder.control(null, Validators.email),
@@ -24,11 +27,11 @@ export class ContactFormComponent {
     });
   }
 
-  changeLoad() {
+  changeLoad(): void {
     this.loading = !this.loading;
   }
 
-  public onSubmit() {
+  public onSubmit(): void {
     const name = this.googleSheetForm.value.name;
     const email = this.googleSheetForm.value.email;
     const phone = this.googleSheetForm.value.phone;
@@ -43,23 +46,26 @@ export class ContactFormComponent {
     }
     this.googleSheetForm.disable();
 
-    this.service.createSheet(name, email, phone, message).subscribe({
-      next: () => {
-        this.googleSheetForm.reset();
-        this.successAlert();
-      },
-      error: (error) => {
-        console.log(error);
-        this.errorAlert();
-      },
-      complete: () => {
-        this.googleSheetForm.enable();
-        this.changeLoad();
-      },
-    });
+    this.service
+      .createSheet(name, email, phone, message)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe({
+        next: () => {
+          this.googleSheetForm.reset();
+          this.successAlert();
+        },
+        error: (error) => {
+          console.log(error);
+          this.errorAlert();
+        },
+        complete: () => {
+          this.googleSheetForm.enable();
+          this.changeLoad();
+        },
+      });
   }
 
-  invalidAlert() {
+  invalidAlert(): void {
     Swal.fire({
       html:
         ' <div class="alert__ctn">' +
@@ -71,7 +77,7 @@ export class ContactFormComponent {
     });
   }
 
-  successAlert() {
+  successAlert(): void {
     Swal.fire({
       html:
         ' <div class="alert__ctn">' +
@@ -83,7 +89,7 @@ export class ContactFormComponent {
     });
   }
 
-  errorAlert() {
+  errorAlert(): void {
     Swal.fire({
       html:
         ' <div class="alert__ctn">' +

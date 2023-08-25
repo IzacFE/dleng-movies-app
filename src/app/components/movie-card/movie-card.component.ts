@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
 
 @Component({
@@ -6,10 +6,6 @@ import { Movie } from 'src/app/models/movie';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.less'],
 })
-export class MovieCardComponent implements OnInit {
+export class MovieCardComponent {
   @Input() data!: Movie;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

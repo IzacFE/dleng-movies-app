@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { takeUntil } from 'rxjs';
 import { MovieCardComponent } from 'src/app/components/movie-card/movie-card.component';
 import { Movie } from 'src/app/models/movie';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
+import { Unsub } from 'src/app/utils/unsub.class';
 MovieCardComponent;
 @Component({
   selector: 'app-list',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.less'],
 })
-export class MoviesComponent implements OnInit {
+export class MoviesComponent extends Unsub implements OnInit {
   movies!: Movie[];
   loading: boolean = false;
 
@@ -23,10 +25,11 @@ export class MoviesComponent implements OnInit {
     private meta: Meta,
     private title: Title
   ) {
+    super();
     this.setSEO();
   }
 
-  setSEO() {
+  setSEO(): void {
     this.title.setTitle('DLENG Movies List');
     this.meta.addTags([
       {
@@ -52,26 +55,33 @@ export class MoviesComponent implements OnInit {
 
   trendingData() {
     this.loading = true;
-    this.service.infiniteMovieApiData(this.currentPage).subscribe({
-      next: (response) => {
-        this.movies = response.results;
-      },
-      error: (err) => console.log(err),
-      complete: () => {
-        this.loading = false;
-      },
-    });
+    this.service
+      .trendingMovieApiData(this.currentPage)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe({
+        next: (response) => {
+          this.movies = response.results;
+        },
+        error: (err) => console.log(err),
+        complete: () => {
+          this.loading = false;
+        },
+      });
   }
 
   appendData() {
     this.toggleLoading();
-    this.service.infiniteMovieApiData(this.currentPage).subscribe({
-      next: (response) => (this.movies = [...this.movies, ...response.results]),
-      error: (err) => console.log(err),
-      complete: () => {
-        this.toggleLoading();
-      },
-    });
+    this.service
+      .trendingMovieApiData(this.currentPage)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe({
+        next: (response) =>
+          (this.movies = [...this.movies, ...response.results]),
+        error: (err) => console.log(err),
+        complete: () => {
+          this.toggleLoading();
+        },
+      });
   }
 
   onScroll() {
