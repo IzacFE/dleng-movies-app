@@ -20,30 +20,5 @@
   </head>
   <body>
     <app-root></app-root>
-    <script>
-      (function () {
-        const list = document.querySelectorAll(".control");
-        function activeLink() {
-          list.forEach((button) => {
-            button.classList.remove("active-btn");
-            this.classList.add("active-btn");
-          });
-        }
-        list.forEach((item) => {
-          item.addEventListener("click", activeLink);
-        });
-
-        [...document.querySelectorAll(".control")].forEach((button) => {
-          button.addEventListener("click", function () {
-            document.querySelector(".active").classList.remove("active");
-            document.getElementById(button.dataset.id).classList.add("active");
-          });
-        });
-
-        document.querySelector(".theme-btn").addEventListener("click", () => {
-          document.body.classList.toggle("light-mode");
-        });
-      });
-    </script>
   </body>
 </html>

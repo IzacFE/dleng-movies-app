@@ -21,14 +21,18 @@ export class TrendingCardsComponent extends Unsub implements OnInit {
     this.trendingData();
   }
 
+  changeLoad(): void {
+    this.dataLoad = !this.dataLoad;
+  }
+
   trendingData(): void {
-    this.dataLoad = true;
+    this.changeLoad();
     this.service
       .trendingMovieApiData(1)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((result) => {
         this.dataResult = result.results;
       });
-    this.dataLoad = false;
+    this.changeLoad();
   }
 }

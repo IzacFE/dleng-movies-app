@@ -49,11 +49,11 @@ export class MoviesComponent extends Unsub implements OnInit {
     this.trendingData();
   }
 
-  toggleLoading() {
+  toggleLoading(): void {
     this.isLoading = !this.isLoading;
   }
 
-  trendingData() {
+  trendingData(): void {
     this.loading = true;
     this.service
       .trendingMovieApiData(this.currentPage)
@@ -69,7 +69,7 @@ export class MoviesComponent extends Unsub implements OnInit {
       });
   }
 
-  appendData() {
+  appendData(): void {
     this.toggleLoading();
     this.service
       .trendingMovieApiData(this.currentPage)
@@ -84,7 +84,7 @@ export class MoviesComponent extends Unsub implements OnInit {
       });
   }
 
-  onScroll() {
+  onScroll(): void {
     this.currentPage++;
     this.appendData();
   }

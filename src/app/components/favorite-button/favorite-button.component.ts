@@ -21,7 +21,7 @@ export class FavoriteButtonComponent extends Unsub {
   }
 
   ngOnInit(): void {
-    this.isLoading = true;
+    this.changeLoad();
     this.favoriteService
       .getFavorites()
       .pipe(takeUntil(this.unsubscribe$))
@@ -34,8 +34,13 @@ export class FavoriteButtonComponent extends Unsub {
         },
         () => {
           this.checkFavorite();
+          this.changeLoad();
         }
       );
+  }
+
+  changeLoad(): void {
+    this.isLoading = !this.isLoading;
   }
 
   changeFav(): void {

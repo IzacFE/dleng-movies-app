@@ -12,7 +12,7 @@ import { Unsub } from 'src/app/utils/unsub.class';
 })
 export class VideoComponent extends Unsub implements OnInit {
   getMovieVideosResult: Video[] = [];
-  loading: boolean = true;
+  loading: boolean = false;
 
   constructor(
     private service: TmdbApiServiceService,
