@@ -11,7 +11,7 @@ export class DetailComponent {
     this.setSEO();
   }
 
-  setSEO() {
+  setSEO(): void {
     this.title.setTitle('DLENG Movie Detail Page');
     this.meta.addTags([
       {

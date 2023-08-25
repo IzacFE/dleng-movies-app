@@ -14,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { TmdbApiServiceService } from './service/tmdb-api-service.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ButtonComponent } from './components/button/button.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ErrorComponent } from './pages/error/error.component';
@@ -40,7 +39,6 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
     MoviesComponent,
     FavoritesComponent,
     NavbarComponent,
-    ButtonComponent,
     MovieCardComponent,
     ContactComponent,
     ErrorComponent,

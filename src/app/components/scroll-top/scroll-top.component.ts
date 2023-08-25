@@ -1,5 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { ViewportScroller } from '@angular/common';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-scroll-top',
@@ -9,7 +8,7 @@ import { ViewportScroller } from '@angular/common';
 export class ScrollTopComponent {
   isShow: string = '';
 
-  @HostListener('document:scroll') scrollover() {
+  @HostListener('document:scroll') scrollover(): void {
     if (
       document.body.scrollTop > 500 ||
       document.documentElement.scrollTop > 500
@@ -20,7 +19,7 @@ export class ScrollTopComponent {
     }
   }
 
-  gotoTop() {
+  gotoTop(): void {
     window.scroll({
       top: 0,
       left: 0,

@@ -11,7 +11,7 @@ export class ContactComponent {
     this.setSEO();
   }
 
-  setSEO() {
+  setSEO(): void {
     this.title.setTitle('DLENG Movie Contact Page');
     this.meta.addTags([
       {
