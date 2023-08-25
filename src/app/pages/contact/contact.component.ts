@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -6,5 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.less'],
 })
 export class ContactComponent {
-  constructor() {}
+  constructor(private meta: Meta, private title: Title) {
+    this.setSEO();
+  }
+
+  setSEO(): void {
+    this.title.setTitle('DLENG Movie Contact Page');
+    this.meta.addTags([
+      {
+        name: 'description',
+        content:
+          'DLENG contact page to send question, suggestion, and other messages',
+      },
+      {
+        name: 'keywords',
+        content: 'Contact, Question, Suggestion, Message, Help',
+      },
+      { name: 'robots', content: 'index,follow' },
+    ]);
+  }
 }

@@ -1,38 +1,45 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { takeUntil } from 'rxjs';
 import { Movie } from 'src/app/models/movie';
 import { TmdbApiServiceService } from 'src/app/service/tmdb-api-service.service';
+import { Unsub } from 'src/app/utils/unsub.class';
 
 @Component({
   selector: 'app-hero-banner',
   templateUrl: './hero-banner.component.html',
   styleUrls: ['./hero-banner.component.less'],
 })
-export class HeroBannerComponent implements OnInit, OnDestroy {
+export class HeroBannerComponent extends Unsub implements OnInit {
   bannerLoad: boolean = false;
   bannerResult: Movie[] = [];
 
   currentIndex: number = 0;
   timeoutId?: number;
-  constructor(private service: TmdbApiServiceService) {}
+  constructor(private service: TmdbApiServiceService) {
+    super();
+  }
 
   ngOnInit(): void {
     this.resetTimer();
     this.bannerData();
   }
 
-  bannerData() {
-    this.bannerLoad = true;
-    this.service.trendingMovieApiData().subscribe((result) => {
-      this.bannerResult = result.results;
-    });
-    this.bannerLoad = false;
+  changeLoad(): void {
+    this.bannerLoad = !this.bannerLoad;
   }
 
-  ngOnDestroy() {
-    window.clearTimeout(this.timeoutId);
+  bannerData(): void {
+    this.changeLoad();
+    this.service
+      .trendingMovieApiData(1)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((result) => {
+        this.bannerResult = result.results;
+        this.changeLoad();
+      });
   }
 
-  resetTimer() {
+  resetTimer(): void {
     if (this.timeoutId) {
       window.clearTimeout(this.timeoutId);
     }
@@ -47,7 +54,7 @@ export class HeroBannerComponent implements OnInit, OnDestroy {
     this.currentIndex = newIndex;
   }
 
-  getCurrentSlideUrl() {
+  getCurrentSlideUrl(): Movie {
     return this.bannerResult[this.currentIndex];
   }
 }

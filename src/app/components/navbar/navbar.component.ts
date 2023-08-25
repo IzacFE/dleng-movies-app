@@ -6,11 +6,9 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./navbar.component.less'],
 })
 export class NavbarComponent {
-  constructor() {}
-
   navbg: string = '';
 
-  @HostListener('document:scroll') scrollover() {
+  @HostListener('document:scroll') scrollover(): void {
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
       this.navbg = 'scroll';
     } else {
