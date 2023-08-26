@@ -8,7 +8,7 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ErrorComponent } from './pages/error/error.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'movies', component: MoviesComponent },

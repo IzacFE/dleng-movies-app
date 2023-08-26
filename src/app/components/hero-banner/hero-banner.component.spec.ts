@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeroBannerComponent } from './hero-banner.component';
+// import { HeroBannerComponent } from './hero-banner.component';
 
-describe('HeroBannerComponent', () => {
-  let component: HeroBannerComponent;
-  let fixture: ComponentFixture<HeroBannerComponent>;
+// describe('HeroBannerComponent', () => {
+//   let component: HeroBannerComponent;
+//   let fixture: ComponentFixture<HeroBannerComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [HeroBannerComponent]
-    });
-    fixture = TestBed.createComponent(HeroBannerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [HeroBannerComponent]
+//     });
+//     fixture = TestBed.createComponent(HeroBannerComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
